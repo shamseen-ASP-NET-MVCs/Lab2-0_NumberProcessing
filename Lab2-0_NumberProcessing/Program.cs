@@ -75,32 +75,35 @@ namespace Lab2_0_NumberProcessing
         static void spaceExploration()
         {
             //declaring variables
-            const double accelPerMin = 1.1; //in percent
-            const int minutesFired = 5;
-            double velInitial = 10000.0, velFinal = 0;
+            const double accelPer30Sec = 1.05; //increase by 5% per 30 seconds
+            int minutesFired = 5;
+            double velInitial = 10000.0, velFinal = velInitial;
 
     //First question
             //calculation
-            velFinal = velInitial * accelPerMin * minutesFired;
+            //velFinal = velInitial * accelPerMin * minutesFired;
+            for (int secPassed = 0; secPassed < minutesFired * 60; secPassed += 30 )
+                velFinal *= accelPer30Sec;
 
-            //formatting and printing output
-            Console.WriteLine("\nThe rocket will go {0:N1} mph after firing for 5 min.",
-                velFinal);
+                //formatting and printing output
+                Console.WriteLine("\nThe rocket will go {0:N} mph after firing for 5 min.",
+                    velFinal);
 
 
     //Second question
-            //resetting final answer
-            velFinal = velInitial;
+                //resetting final answer and minutes fired for 
+                velFinal = velInitial;
 
-            //since each cycle is 15 minutes, will just keep recalculating velocity after every 
-            //5-minute boost until 2 hours have passed
-            for (int totalMin = 0; totalMin <= 120; totalMin += 15) 
-                        //overall time passed with each cycle
-                velFinal *= accelPerMin * minutesFired;
+                //since each cycle is 15 minutes, will just keep recalculating velocity after every 
+                //5-minute boost until 2 hours have passed
+                for (int minPassed = 0; minPassed < 120; minPassed += 15 )  //per cycle
 
-            //formatting and printing output
-            Console.WriteLine("\nThe rocket will go {0:N1} mph after a 2-hour cycle of 5-min burn" 
-            + "10-min coast.", velFinal);
+                    for (int secPassed = 0; secPassed < minutesFired * 60; secPassed += 30)
+                        velFinal *= accelPer30Sec;
+
+                //formatting and printing output
+                Console.WriteLine("\nThe rocket will go {0:N} mph after a 2-hour cycle of a 5-min burn"
+                + " followed by a 10-min coast.", velFinal);
         }
 
         static void extraCredit()

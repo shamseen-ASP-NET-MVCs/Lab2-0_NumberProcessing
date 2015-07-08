@@ -35,14 +35,13 @@ namespace Lab2_0_NumberProcessing
         {
             //declaring variables
             double deposit = 35.0, totalDeposited = 0;
-            String output = "";
 
             //calculating total ==> 365.25 for leap years. courtesy of yashmyn :)
             totalDeposited = deposit * 365.25 * years;
 
             //formatting and printing output
-            output = String.Format("After {0} year(s), a total of {1:C2} was deposited.", years, totalDeposited);
-            Console.WriteLine(output);
+            Console.WriteLine("After {0} year(s), a total of {1:C2} was deposited.", 
+                years, totalDeposited);
         }
 
         static void landCost()
@@ -50,7 +49,7 @@ namespace Lab2_0_NumberProcessing
             //declaring variables
             double length = 0, width = 0, area = 0, perimeter = 0, totalCost = 0;
             const double costPerSqYard = 5.0, costPerFt = 0.75;
-            String input = "", output = "";
+            String input = "";
 
             //taking input for land dimensions
             Console.Write("What is the length? ");
@@ -67,11 +66,10 @@ namespace Lab2_0_NumberProcessing
             perimeter = (2.0 * length) + (2.0 * width);
             totalCost = (area * costPerSqYard) + (perimeter * costPerFt);
 
-            //formatting output
-            output = String.Format("\nLength: {0}ft \nWidth: {1}ft \nArea: {2}sq yd \nPerimeter: {3}ft \nTotalCost: {4:C2}",
-                length, width, area, perimeter, totalCost);
-
-            Console.WriteLine(output);
+            //formatting and printing output
+            Console.WriteLine("\nLength: {0}ft \nWidth: {1}ft \nArea: {2:N3}sq yd" + 
+                "\nPerimeter: {3}ft" + "\nTotalCost: {4:C2}", length, width, area, 
+                perimeter, totalCost);
         }
 
         static void spaceExploration()
@@ -80,31 +78,29 @@ namespace Lab2_0_NumberProcessing
             const double accelPerMin = 1.1; //in percent
             const int minutesFired = 5;
             double velInitial = 10000.0, velFinal = 0;
-            String output = "";
 
-
-            //First question
+    //First question
             //calculation
             velFinal = velInitial * accelPerMin * minutesFired;
 
             //formatting and printing output
-            output = String.Format("\nThe rocket will go {0:N1} mph after firing for 5 minutes.", velFinal);
-            Console.WriteLine(output);
+            Console.WriteLine("\nThe rocket will go {0:N1} mph after firing for 5 min.",
+                velFinal);
 
 
-            //Second question
+    //Second question
             //resetting final answer
             velFinal = velInitial;
 
-            //since each cycle is 15 minutes, will just keep recalculating velocity after every 5-minute boost
-            //until 2 hours have passed
-            for (int totalMin = 0; totalMin <= 120; totalMin += 15) //overall time passed with each cycle
+            //since each cycle is 15 minutes, will just keep recalculating velocity after every 
+            //5-minute boost until 2 hours have passed
+            for (int totalMin = 0; totalMin <= 120; totalMin += 15) 
+                        //overall time passed with each cycle
                 velFinal *= accelPerMin * minutesFired;
 
             //formatting and printing output
-            output = String.Format("\nThe rocket will go {0:N1} mph after a 2-hour cycle of 5-min burn + 10-min coast.",
-                velFinal);
-            Console.WriteLine(output);
+            Console.WriteLine("\nThe rocket will go {0:N1} mph after a 2-hour cycle of 5-min burn" 
+            + "10-min coast.", velFinal);
         }
 
         static void extraCredit()

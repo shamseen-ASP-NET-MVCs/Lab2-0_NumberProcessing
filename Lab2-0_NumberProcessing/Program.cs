@@ -94,16 +94,16 @@ namespace Lab2_0_NumberProcessing
                 //resetting final answer and minutes fired for 
                 velFinal = velInitial;
 
-                //since each cycle is 15 minutes, will just keep recalculating velocity after every 
-                //5-minute boost until 2 hours have passed
-                for (int minPassed = 0; minPassed < 120; minPassed += 15 )  //per cycle
+                //since each cycle is 15 minutes, will just keep recalculating  
+                //velocity after every 5-minute boost until 2 hours have passed
+                for (int minPassed = 0; minPassed < 120; minPassed += 15 )//per cycle
 
-                    for (int secPassed = 0; secPassed < minutesFired * 60; secPassed += 30)
+                    for (int secPassed = 0; secPassed < minutesFired * 60; secPassed+=30)
                         velFinal *= accelPer30Sec;
 
                 //formatting and printing output
-                Console.WriteLine("\nThe rocket will go {0:N} mph after a 2-hour cycle of a 5-min burn"
-                + " followed by a 10-min coast.", velFinal);
+                Console.WriteLine("\nThe rocket will go {0:N} mph after a 2-hour cycle" +
+                    "of a 5-min burn followed by a 10-min coast.", velFinal);
         }
 
         static void extraCredit()

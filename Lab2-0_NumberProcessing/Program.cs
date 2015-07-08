@@ -37,8 +37,8 @@ namespace Lab2_0_NumberProcessing
             double deposit = 35.0, totalDeposited = 0;
             String output = "";
 
-            //calculating total
-            totalDeposited = deposit * 365 * years;
+            //calculating total ==> 365.25 for leap years. courtesy of yashmyn :)
+            totalDeposited = deposit * 365.25 * years;
 
             //formatting and printing output
             output = String.Format("After {0} year(s), a total of {1:C2} was deposited.", years, totalDeposited);

@@ -20,7 +20,7 @@ namespace Lab2_0_NumberProcessing
 
             ////Land cost calculator
             Console.WriteLine("\n\n-----LAND COST CALCULATOR-----");
-           // landCost();
+            landCost();
 
             //Space Exploration
             Console.WriteLine("\n\n-----SPACE EXPLORATION-----");
@@ -63,12 +63,12 @@ namespace Lab2_0_NumberProcessing
 
 
             //calculations
-            area = length * width;
+            area = length * width / 9;  //accounting for yards
             perimeter = (2.0 * length) + (2.0 * width);
             totalCost = (area * costPerSqYard) + (perimeter * costPerFt);
 
             //formatting output
-            output = String.Format("\nLength: {0}ft \nWidth: {1}ft \nArea: {2}sq ft \nPerimeter: {3}ft \nTotalCost: {4:C2}",
+            output = String.Format("\nLength: {0}ft \nWidth: {1}ft \nArea: {2}sq yd \nPerimeter: {3}ft \nTotalCost: {4:C2}",
                 length, width, area, perimeter, totalCost);
 
             Console.WriteLine(output);
